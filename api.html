@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1148608257575329"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation - Universal Calculator Suite</title>
+    <meta name="description" content="API Documentation for Universal Calculator Suite. Access our calculator tools programmatically.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://yourdomain.com/api-documentation.html">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "APIReference",
+        "name": "Universal Calculator Suite API",
+        "description": "API documentation for accessing calculator tools programmatically"
+    }
+    </script>
+    <style>
+        :root {
+            --primary: #4cc9f0;
+            --primary-dark: #4895ef;
+            --secondary: #4361ee;
+            --accent: #f72585;
+            --light: #f8f9fa;
+            --dark: #333;
+            --gray: #dee2e6;
+            --success: #49cc90;
+            --info: #61affe;
+            --warning: #fca130;
+            --danger: #f93e3e;
+            --code-bg: #2d2d2d;
+            --code-color: #f8f8f2;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+            line-height: 1.6; 
+            color: var(--dark); 
+            background: var(--light);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header { 
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white; 
+            padding: 3rem 2rem; 
+            border-radius: 12px; 
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        header::before {
+            content: '{ }';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 5rem;
+            opacity: 0.1;
+            font-family: monospace;
+        }
+        h1 { 
+            font-size: 2.8rem; 
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+        .container { 
+            background: white; 
+            padding: 2.5rem; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-bottom: 2rem;
+        }
+        h2 { 
+            color: var(--primary-dark); 
+            margin: 2.5rem 0 1.2rem; 
+            padding-bottom: 0.75rem; 
+            border-bottom: 3px solid var(--gray);
+            font-size: 1.8rem;
+        }
+        h3 { 
+            color: var(--dark); 
+            margin: 1.8rem 0 0.8rem; 
+            font-size: 1.3rem;
+        }
+        p { 
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+        }
+        pre { 
+            background: var(--code-bg); 
+            color: var(--code-color); 
+            padding: 1.5rem; 
+            border-radius: 8px; 
+            overflow-x: auto; 
+            margin: 1.2rem 0;
+            border-left: 4px solid var(--primary);
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        code { 
+            background: rgba(76, 201, 240, 0.1); 
+            color: var(--primary-dark);
+            padding: 0.25rem 0.5rem; 
+            border-radius: 4px; 
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+        table { 
+            width: 100%; 
+            border-collapse: separate; 
+            border-spacing: 0;
+            margin: 1.2rem 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        th, td { 
+            border: 1px solid var(--gray); 
+            padding: 1rem; 
+            text-align: left; 
+        }
+        th { 
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white; 
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+        tr:nth-child(even) {
+            background: rgba(76, 201, 240, 0.05);
+        }
+        .endpoint { 
+            background: rgba(76, 201, 240, 0.08); 
+            padding: 1.2rem; 
+            border-radius: 8px; 
+            margin: 1.2rem 0;
+            border-left: 4px solid var(--primary);
+        }
+        .method { 
+            display: inline-block; 
+            padding: 0.4rem 1rem; 
+            border-radius: 6px; 
+            font-weight: 700; 
+            margin-right: 1rem;
+            font-family: 'Consolas', monospace;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+        .get { background: var(--info); color: white; }
+        .post { background: var(--success); color: white; }
+        .put { background: var(--warning); color: white; }
+        .delete { background: var(--danger); color: white; }
+        .back-link { 
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 2rem; 
+            color: var(--primary-dark); 
+            text-decoration: none; 
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 0.75rem 1.5rem;
+            background: rgba(76, 201, 240, 0.1);
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+        .back-link:hover { 
+            text-decoration: none;
+            background: rgba(76, 201, 240, 0.2);
+            transform: translateX(-4px);
+        }
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--accent);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+        }
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .calculator-card {
+            background: white;
+            border: 1px solid var(--gray);
+            border-radius: 8px;
+            padding: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        .calculator-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+            border-color: var(--primary);
+        }
+        @media (max-width: 768px) {
+            body { padding: 15px; }
+            h1 { font-size: 2.2rem; }
+            .container { padding: 1.5rem; }
+            pre { font-size: 0.85rem; padding: 1rem; }
+            .calculator-grid {
+                grid-template-columns: 1fr;
+            }
+            header { padding: 2rem 1.5rem; }
+            header::before { font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>API Documentation</h1>
+        <p>Programmatic access to Universal Calculator Suite's 120+ calculator tools</p>
+    </header>
+    
+    <main class="container">
+        <h2>Introduction</h2>
+        <p>The Universal Calculator Suite API allows developers to integrate our calculator tools into their applications. Our API provides programmatic access to 120+ calculators across multiple categories.</p>
+        
+        <h2>Quick Start</h2>
+        <div class="endpoint">
+            <span class="method post">POST</span>
+            <code>/api/v1/calculate</code>
+        </div>
+        
+        <pre><code>curl -X POST https://api.universalcalculatorsuite.com/v1/calculate \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -d '{
+    "calculator": "mortgage",
+    "params": {
+      "loanAmount": 300000,
+      "interestRate": 4.5,
+      "loanTerm": 30
+    }
+  }'</code></pre>
+        
+        <h2>Authentication</h2>
+        <p>All API requests require an API key. You can obtain one by:</p>
+        <ol>
+            <li>Creating an account on our developer portal</li>
+            <li>Generating an API key in your dashboard</li>
+            <li>Including the key in the Authorization header</li>
+        </ol>
+        
+        <pre><code>Authorization: Bearer YOUR_API_KEY_HERE</code></pre>
+        
+        <h2>Rate Limits</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Plan</th>
+                    <th>Requests/Day</th>
+                    <th>Requests/Minute</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Free</strong></td>
+                    <td>100</td>
+                    <td>10</td>
+                    <td>$0/month</td>
+                </tr>
+                <tr>
+                    <td><strong>Basic</strong></td>
+                    <td>10,000</td>
+                    <td>100</td>
+                    <td>$29/month</td>
+                </tr>
+                <tr>
+                    <td><strong>Pro</strong></td>
+                    <td>100,000</td>
+                    <td>1,000</td>
+                    <td>$99/month</td>
+                </tr>
+                <tr>
+                    <td><strong>Enterprise</strong></td>
+                    <td>Unlimited</td>
+                    <td>Unlimited</td>
+                    <td>Custom</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h2>Available Calculators</h2>
+        
+        <div class="calculator-grid">
+            <div class="calculator-card">
+                <h3>Finance Calculators</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li><code>mortgage</code> - Calculate mortgage payments</li>
+                    <li><code>compound-interest</code> - Investment growth</li>
+                    <li><code>loan</code> - Loan payments and totals</li>
+                    <li><code>investment-returns</code> - Investment projections</li>
+                    <li><code>roi</code> - Return on investment</li>
+                </ul>
+            </div>
+            
+            <div class="calculator-card">
+                <h3>Health Calculators</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li><code>bmi</code> - Body Mass Index</li>
+                    <li><code>calories</code> - Daily calorie needs</li>
+                    <li><code>body-fat</code> - Body fat percentage</li>
+                    <li><code>ideal-weight</code> - Healthy weight range</li>
+                    <li><code>water-intake</code> - Daily water needs</li>
+                </ul>
+            </div>
+            
+            <div class="calculator-card">
+                <h3>Math Calculators</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li><code>percentage</code> - Percentage calculations</li>
+                    <li><code>fraction</code> - Fraction operations</li>
+                    <li><code>algebra</code> - Algebraic equations</li>
+                    <li><code>geometry</code> - Area and volume</li>
+                    <li><code>statistics</code> - Mean, median, mode</li>
+                </ul>
+            </div>
+        </div>
+        
+        <h2>API Endpoints</h2>
+        
+        <div class="endpoint">
+            <span class="method get">GET</span>
+            <code>/api/v1/calculators</code>
+            <p style="margin-top: 0.5rem; color: #666;">List all available calculators</p>
+        </div>
+        
+        <div class="endpoint">
+            <span class="method post">POST</span>
+            <code>/api/v1/calculate</code>
+            <p style="margin-top: 0.5rem; color: #666;">Perform a single calculation</p>
+        </div>
+        
+        <div class="endpoint">
+            <span class="method post">POST</span>
+            <code>/api/v1/calculate/batch</code>
+            <p style="margin-top: 0.5rem; color: #666;">Perform multiple calculations in one request</p>
+        </div>
+        
+        <div class="endpoint">
+            <span class="method get">GET</span>
+            <code>/api/v1/calculators/{calculator_id}/schema</code>
+            <p style="margin-top: 0.5rem; color: #666;">Get parameter schema for a specific calculator</p>
+        </div>
+        
+        <h2>Example Request: Mortgage Calculator</h2>
+        <pre><code>{
+  "calculator": "mortgage",
+  "params": {
+    "loanAmount": 300000,
+    "downPayment": 20,
+    "interestRate": 4.5,
+    "loanTerm": 30,
+    "propertyTax": 3600,
+    "insurance": 1200
+  }
+}</code></pre>
+        
+        <h2>Example Response</h2>
+        <pre><code>{
+  "success": true,
+  "data": {
+    "monthlyPayment": 1216.04,
+    "totalMonthly": 1416.04,
+    "totalInterest": 157774.4,
+    "totalCost": 457774.4
+  },
+  "calculator": "mortgage",
+  "timestamp": "2024-01-15T10:30:00Z"
+}</code></pre>
+        
+        <h2>Error Codes</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Code</th>
+                    <th>Message</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>400</code></td>
+                    <td>Bad Request</td>
+                    <td>Invalid parameters or missing fields</td>
+                </tr>
+                <tr>
+                    <td><code>401</code></td>
+                    <td>Unauthorized</td>
+                    <td>Invalid or missing API key</td>
+                </tr>
+                <tr>
+                    <td><code>403</code></td>
+                    <td>Forbidden</td>
+                    <td>Rate limit exceeded or insufficient permissions</td>
+                </tr>
+                <tr>
+                    <td><code>404</code></td>
+                    <td>Not Found</td>
+                    <td>Calculator not found</td>
+                </tr>
+                <tr>
+                    <td><code>429</code></td>
+                    <td>Too Many Requests</td>
+                    <td>Rate limit exceeded</td>
+                </tr>
+                <tr>
+                    <td><code>500</code></td>
+                    <td>Internal Server Error</td>
+                    <td>Server error</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h2>SDK Libraries</h2>
+        <p>We provide official SDKs for popular programming languages:</p>
+        
+        <h3>JavaScript/Node.js</h3>
+        <pre><code>npm install @universal-calculator/sdk</code></pre>
+        
+        <pre><code>const { CalculatorClient } = require('@universal-calculator/sdk');
+
+const client = new CalculatorClient('YOUR_API_KEY');
+
+const result = await client.calculate('mortgage', {
+  loanAmount: 300000,
+  interestRate: 4.5,
+  loanTerm: 30
+});</code></pre>
+        
+        <h3>Python</h3>
+        <pre><code>pip install universal-calculator</code></pre>
+        
+        <pre><code>from universal_calculator import CalculatorClient
+
+client = CalculatorClient(api_key='YOUR_API_KEY')
+result = client.calculate(
+    calculator='bmi',
+    params={'height': 170, 'weight': 70}
+)</code></pre>
+        
+        <h2>Support</h2>
+        <p>For API support:</p>
+        <ul style="list-style: none; padding-left: 0;">
+            <li>📧 Email: <code>api-support@universalcalculatorsuite.com</code></li>
+            <li>📚 Documentation: <code>https://docs.universalcalculatorsuite.com</code></li>
+            <li>🐙 GitHub: <code>https://github.com/universal-calculator</code></li>
+        </ul>
+        
+        <a href="index.html" class="back-link">← Back to Calculator</a>
+    </main>
+</body>
+</html>
